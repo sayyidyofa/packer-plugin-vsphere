@@ -91,10 +91,6 @@ type StepCustomize struct {
 
 func (c *CustomizeConfig) Prepare() []error {
 	var errs []error
-
-	if c.LinuxOptions == nil && c.WindowsSysPrepFile == "" {
-		errs = append(errs, fmt.Errorf("customize is empty"))
-	}
 	if c.LinuxOptions != nil && c.WindowsSysPrepFile != "" {
 		errs = append(errs, fmt.Errorf("`linux_options` and `windows_sysprep_text` both set - one must not be included if the other is specified"))
 	}
